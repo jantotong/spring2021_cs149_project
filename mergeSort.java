@@ -46,7 +46,7 @@ public class mergeSort {
 
         long final_time = System.currentTimeMillis() - start_time;
 
-        System.out.println(merger.get_result());
+        //System.out.println(merger.get_result());
 
         System.out.println("Time Used: " + (float) final_time / 1000 + " seconds");
     }
