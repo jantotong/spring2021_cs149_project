@@ -29,16 +29,19 @@ public class mergeSort {
         List<sortingThread> thread_list = new ArrayList<>();
         sortingThread sorting_thread1 = new sortingThread(sub_list1);
         sortingThread sorting_thread2 = new sortingThread(sub_list2);
-
+        
+        thread_list.add(sorting_thread1);
+        thread_list.add(sorting_thread2);
+        
         //Using Comparable interface
         Collections.sort(thread_list);
 
         //two sorting threads
-        sorting_thread1.fork();
-        sorting_thread2.fork();
-        sorting_thread1.join();
-        sorting_thread2.join();
-
+        (thread_list.get(0)).fork();
+        (thread_list.get(1)).fork();
+        (thread_list.get(0)).join();
+        (thread_list.get(1)).join();
+        
         //merging thread
         mergingThread merger = new mergingThread(sorting_thread1, sorting_thread2);
         merger.fork();
